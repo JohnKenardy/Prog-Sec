@@ -74,7 +74,7 @@ include("scripts/sessioncheck.php");
                 echo('<h1>item ID: ' .  $_GET['item'] . '</h1>');
 
                 $sql = "SELECT * 
-                        FROM items
+                        FROM iItems
                         WHERE itemID = " . $_GET['item'] . "
                         ;";
                 
