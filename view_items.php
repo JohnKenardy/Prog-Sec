@@ -37,7 +37,7 @@ include("scripts/sessioncheck.php");
 
             <?php
             // Check if a search query is provided
-            if (isset($_GET['item'])) {
+            if (isset($_GET['search'])) {
                 $search = $_GET['item'];
 
                 // Query to fetch matching item
@@ -74,7 +74,7 @@ include("scripts/sessioncheck.php");
                 echo('<h1>item ID: ' .  $_GET['item'] . '</h1>');
 
                 $sql = "SELECT * 
-                        FROM iItems
+                        FROM Items
                         WHERE itemID = " . $_GET['item'] . "
                         ;";
                 
