@@ -28,6 +28,16 @@ Download vmware to run the VM
 
 Use WinSCP to
 
+## Passwords
+
+VM
+Username: vlims
+Password Grp12VLIMS
+
+MyPHP
+Username: VLIMS
+Password Grp12VLIMS!
+
 ## Authors
 
 - [Oliver Beard](https://github.com/JohnKenardy)
