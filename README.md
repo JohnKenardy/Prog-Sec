@@ -2,13 +2,6 @@
 
 This project will create a report and an application for inventory tracing. i.e. working out where inventory is, how much of it you have, who supplies it etc.
 
-## TO DO LATER - Features
-
-- Feature 1
-- Feature 2
-- Feature 3
-- Feature 4
-
 ## Utilised Software:
 
 ![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server%20Version-20.04.5%20LTS-informational)
@@ -34,7 +27,6 @@ Use WinSCP to transfer files accross
 https://winscp.net/eng/download.php
 
 ## Passwords
-
 Sharepoint
 Password: progsec23
 
@@ -45,6 +37,13 @@ Password Grp12VLIMS
 MyPHP
 Username: VLIMS
 Password Grp12VLIMS!
+
+Admin Users for testing on website
+Username: q
+Password: q
+
+Username: root
+Password: root
 
 ## Authors
 
