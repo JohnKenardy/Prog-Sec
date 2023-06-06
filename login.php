@@ -9,7 +9,7 @@ include("scripts/sessioncheck.php");
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Viden LIMS - Login</title>
+        <title>RFID Tool - Login</title>
         <?php
             include("layout/style.php");
         ?>
