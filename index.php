@@ -25,8 +25,8 @@ include("scripts/sessioncheck.php");
         <!-- !PAGE CONTENT! -->
         <div class="w3-main" style="margin-left:250px;margin-top:43px;">
             <div class="w3-panel">
-                <p>INDEX PAGE LAYOUT TO BE CONFIRMED</p>
-                <p>ICONS TO BE CONFIRMED</p>
+                <h1>Programming for Security</h1>
+                <img src="images/logo.png" alt="Logo">
             </div>
         </div>
 
