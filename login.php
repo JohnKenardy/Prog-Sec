@@ -45,7 +45,7 @@ include("scripts/sessioncheck.php");
             <div class="w3-panel" style="width: 400px;">
                 <div class="w3-container w3-card-4 w3-light-grey" style="max-width: 400px; margin: 0 auto; margin-top: 50px;">
                     <div class="logo">
-                        <img src="images/logo.png" alt="Logo">
+                        <img src="images/logo00.png" alt="Logo">
                     </div>
                     <form class="w3-container" style="padding: 20px;" action="form_handlers/login_submit.php" method="post" autocomplete="off">
                         <label for="username">Username:</label>
