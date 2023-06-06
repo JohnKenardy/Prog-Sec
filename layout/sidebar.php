@@ -24,14 +24,7 @@
 <div class="w3-bar-block">
             <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
             <a href="index.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-            <a href="view_items.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Items</a>
-            <a href="view_pages.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Batches, Lots and Storages</a>
-            <a href="view_equipments.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Equipment</a>
-            <a href="view_testMethods.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Test Methods</a>
-            <a href="view_companies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Companies</a>
             <a href="view_customers.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Customers</a>
-            <a href="view_testers.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Testers</a>
-            <a href="view_competencies.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  View Staff Competencies</a>
         </div>
 </nav>
 
