@@ -6,22 +6,22 @@
         exit;
     }
 
-    require_once "../scripts/config_creds.php";
+    require_once "../scripts/config.php";
 
     //Store Posted in local Values
     $Username = addslashes($_POST['username']);
     $Password = addslashes($_POST['password']);
 
-    $credsql = "
+    $sql = "
             SELECT userID, username, password 
-            FROM Credentials 
+            FROM Users 
             WHERE username = '$Username'
             ";
             
-    $credresult = $credlink->query($credsql);
+    $result = $link->query($sql);
         
-    if ($credresult->num_rows > 0) {
-        while($row = $credresult->fetch_assoc()) {
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
             // output data of each row
             $UserID = $row["userID"];
             $Username = $row["username"];

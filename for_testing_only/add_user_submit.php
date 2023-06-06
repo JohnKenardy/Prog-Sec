@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
 
 $sql = "
         INSERT INTO Users (name, email, userType, username, password)
-        VALUES ('$User_Name', '$User_Email', '$User_Type', '$Username', '$Password');
+        VALUES ('$User_Name', '$User_Email', '$User_Type', '$Username', '$Param_Password');
 		";
 
 $userID = -1;
