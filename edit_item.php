@@ -9,7 +9,7 @@ include("scripts/sessioncheck.php");
 <!DOCTYPE html>
 <html>
     <head>
-        <title>RFID Tool - Create New Item</title>
+        <title>RFID Tool - Edit Item</title>
         <?php
             include("layout/style.php");
         ?>
@@ -25,7 +25,7 @@ include("scripts/sessioncheck.php");
             <div class="w3-panel">
                 <div class="w3-container w3-card-4 w3-light-grey" style="max-width: 400px; margin: 0 auto; margin-top: 50px;">
                     <form class="w3-container" style="padding: 20px;" action="form_handlers/edit/edit_item_submit.php" method="post" autocomplete="off">
-                        <h2>Create New Item:</h2>
+                        <h2>Edit Item:</h2>
 
 
                         <?php 
@@ -61,9 +61,6 @@ include("scripts/sessioncheck.php");
                             ?>
                         <input type="hidden" name="itemID" value="<?php echo($itemID); ?>">
 
-                        <a href="view_items.php" class="w3-button w3-blue">Back to All Items</a>
-                        <br><br>
-
 
                         <label for="itemName">item Name:</label>
                             <input type="text" id="itemName" name="itemName" required value="<?php echo($itemName) ?>">
@@ -74,7 +71,7 @@ include("scripts/sessioncheck.php");
                             <input type="text" id="itemRFID" name="itemRFID" required value="<?php echo($itemRFID) ?>">
                         <br><br>
                         
-                        <input type="submit" value="Submit" class="w3-button w3-blue">
+                        <input type="submit" value="Change" class="w3-button w3-blue">
 
                         <p><span id="Error" style="color: red" style="margin-bottom: 20px;"></span></p>
                     </form>
