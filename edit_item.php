@@ -24,7 +24,7 @@ include("scripts/sessioncheck.php");
         <div class="w3-main" style="margin-left:250px;margin-top:43px;">
             <div class="w3-panel">
                 <div class="w3-container w3-card-4 w3-light-grey" style="max-width: 400px; margin: 0 auto; margin-top: 50px;">
-                    <form class="w3-container" style="padding: 20px;" action="form_handlers/add/add_item_submit.php" method="post" autocomplete="off">
+                    <form class="w3-container" style="padding: 20px;" action="form_handlers/edit/edit_item_submit.php" method="post" autocomplete="off">
                         <h2>Create New Item:</h2>
 
 
