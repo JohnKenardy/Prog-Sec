@@ -22,7 +22,7 @@ This project will create a report and an application for inventory tracing. i.e.
 
 #### Precompiled VM's
 
-Precompiled and configured VM's are avaliable here: [Precompiled VMs Onedrive]()
+Precompiled and configured VM's are avaliable here: [Precompiled VMs Onedrive](https://unsw-my.sharepoint.com/:f:/g/personal/z5368497_ad_unsw_edu_au/EmH_EogeyClDpsrWrl_dxCwB9aZYVjpIN8wW-a2BdJ5mug?e=TaaXeP)
 
 Download vmware to run the VM from the sharepoint
 Run the VM and type in the VM username and password
@@ -32,6 +32,8 @@ Use WinSCP to transfer files accross
 https://winscp.net/eng/download.php
 
 ## Passwords
+Sharepoint
+Password: progsec23
 
 VM
 Username: vlims
