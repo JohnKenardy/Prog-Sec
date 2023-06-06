@@ -11,8 +11,8 @@ $itemRFID = addslashes($_POST['itemRFID']);
 
 //check if any variable is empty
 //check if any variable is empty
-if(empty($itemID) || $itemName) || empty($itemRFID)){
-    header("location: ../../add_item.php?e=1");
+if(empty($itemID) || ($itemName) || empty($itemRFID)){
+    header("location: ../../edit_item.php?e=1");
     exit;
 }
 
