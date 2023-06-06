@@ -24,9 +24,12 @@ This project will create a report and an application for inventory tracing. i.e.
 
 Precompiled and configured VM's are avaliable here: [Precompiled VMs Onedrive]()
 
-Download vmware to run the VM
+Download vmware to run the VM from the sharepoint
+Run the VM and type in the VM username and password
+Find the ip and run it in the local browser
 
-Use WinSCP to
+Use WinSCP to transfer files accross
+https://winscp.net/eng/download.php
 
 ## Passwords
 

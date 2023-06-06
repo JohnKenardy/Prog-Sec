@@ -31,9 +31,7 @@
         <select id="userType" name="userType" required>
             <option value="" disabled selected>Select user type</option>
             <option value="Admin">Admin</option>
-            <option value="Manager">Manager</option>
-            <option value="Tester">Tester</option>
-            <option value="Customer">Customer</option>
+            <option value="Manager">Staff</option>
         </select>
         <br><br>
         

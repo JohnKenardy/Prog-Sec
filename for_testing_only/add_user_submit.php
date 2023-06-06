@@ -1,7 +1,6 @@
 <?php
 
 require_once "../scripts/config.php";
-require_once "../scripts/config_creds.php";
 
 //Store Posted in local Values
 $User_Name = addslashes($_POST['name']);
@@ -32,66 +31,19 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-$credsql = "
-        SELECT *
-        FROM Credentials 
-        WHERE username = '$Username';
-        ";
-
-$credresult = $credlink->query($sql);
-
-if ($credresult->num_rows > 0) {
-    echo("Results exist");
-    header("location: add_user.php?e=1");
-    exit;
-}
 
 $sql = "
-        INSERT INTO Users (name, email, userType, createDateTime)
-        VALUES ('$User_Name', '$User_Email', '$User_Type', NOW());
+        INSERT INTO Users (name, email, userType, username, password)
+        VALUES ('$User_Name', '$User_Email', '$User_Type', '$Username', '$Password');
 		";
 
 $userID = -1;
 
 if ($link->query($sql) === TRUE) {
-    echo("Users Add -> SQL Success");
+    header("location: ../login.php");
 }else {
     echo("<br>Users Add -> Error <br>");
     echo "Error: " . $link->error;
-}
-
-//Get UserID
-$sql = "
-        SELECT userID
-        FROM Users 
-        WHERE email = '$User_Email';
-        ";
-
-$result = $link->query($sql);
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $userID = $row["userID"];
-    }
-}else{
-    echo("<br>Users Check -> Error <br>");
-    echo "Error: " . $link->error;
-}
-
-if($UserID != -1){
-    $credsql = "
-        INSERT INTO Credentials (userID, username, password)
-        VALUES ('$userID', '$Username', '$Param_Password');
-        ";
-
-    if ($credlink->query($credsql) === TRUE) {
-        header("location: ../login.php");
-    }else {
-        echo("<br>Credentials Add -> Error <br>");
-        echo "Error: " . $credlink->error;
-    }
-}else{
-    echo("USERID ERROR!");
 }
 
 ?>

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "VLIMS";
 $password = "Grp12VLIMS!";
-$dbname = "vlims";
+$dbname = "progsec";
 
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect($servername, $username, $password, $dbname);
