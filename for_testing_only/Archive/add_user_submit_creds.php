@@ -1,5 +1,5 @@
 <?php
-require_once "../scripts/config_creds.php"
+require_once "../scripts/config_creds.php";
 //Store Posted in local Values
 $UserID = addslashes($_POST['UserID']);
 $Username = $_POST['username'];
@@ -30,4 +30,3 @@ if ($credlink->query($credsql) === TRUE) {
     echo("Credentials -> Error");
     echo ("Error: " . $credlink->error);
 }
-?>
