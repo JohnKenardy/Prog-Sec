@@ -2,11 +2,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 
@@ -37,26 +39,19 @@ class ItemController extends BaseController
             'storage' =>'required'
         ]);
 
-        $item = new Item();
-        $item->rfid = $request->rfid;
-        $item->type = $request->type;
-        $item->unit= $request->unit;
-        $item->inspector = $request->inspector;
-        $item->inspectorComments= $request->inspectorComments;
-        $item->conditionDescription = $request->conditionDescription;
-        $item->storage= $request->storage;
-
-
-        if(Session::has('loginId')){
-            //$data = User::where('userId','=',Session::get('loginId'))->first();
-            $res = $item->save();
-            if($res){
-                return back()->with('success', 'Item Saved');
-            }else{
-                return back()->with('fail', 'something went wrong');
-
-            }
-
+        $query = DB::table('item')->insert([
+            'rfid'=>$request->input('rfid'),
+            'type'=>$request->input('type'),
+            'unit'=>$request->input('unit'),
+            'inspector'=>$request->input('inspector'),
+            'inspectorComments'=>$request->input('inspectorComments'),
+            'conditionDescription'=>$request->input('conditionDescription'),
+            'storage'=>$request->input('storage')
+        ]);
+        if($query){
+            return back()->with('success', 'Item Saved');
+        }else{
+            return back()->with('fail', 'something went wrong');
         }
 
     }
@@ -87,6 +82,10 @@ class ItemController extends BaseController
         $id = $request-> id;
 
         return Item::destroy($id);
+    }
+    public function listTypes(){
+        $types = Type::all();
+        return view('add_item',['data'=>$types]);
     }
 
 

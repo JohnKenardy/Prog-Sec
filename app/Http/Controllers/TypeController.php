@@ -24,7 +24,7 @@ class TypeController extends Controller
 
         $type = new Type();
         $type-> category= $request->category;
-        $type-> description = $request->descritption;
+        $type-> description = $request->description;
 
 
         $res = $type->save();

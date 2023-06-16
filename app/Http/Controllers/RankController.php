@@ -16,9 +16,10 @@ class RankController extends BaseController
 
     public function addRank(Request $request)
     {
-        $request ->validate([
-            'title'=>'required'
+         $request ->validate([
+            'title'=>'required|unique:rank'
         ]);
+
 
         $rank = new Rank();
         $rank->title = $request->title;
@@ -26,9 +27,9 @@ class RankController extends BaseController
 
         $res = $rank->save();
         if($res){
-            return back()->with('success', 'Storage location registered Successfully');
+            return back()->with('success', 'Rank Saved');
         }else{
-            return back()->with('fail', 'something went wrong');
+            return back()->with('fail', 'Something went wrong');
         }
     }
     public static function destroy(Request $request)

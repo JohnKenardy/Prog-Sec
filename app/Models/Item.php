@@ -10,6 +10,6 @@ protected $primaryKey = 'categoryId';
 
 protected $fillable = ['itemId','rfid','type','unit','inspector','inspectorComments','inspectionDate','conditionDescription','storage'];
 protected $table ='item';
-public $timestamps = true;
+public $timestamps = false;
 
 }

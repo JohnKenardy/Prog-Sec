@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\RankController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UnitController;
@@ -29,21 +31,22 @@ Route::get('/dashboard',[Controller::class,'dashboard'])->name('dashboard')->mid
 
 
 Route::group(['prefix' => '/dashboard'], function () {
-    Route::get('/create-item',[Controller::class,'addItem'])->name('create-item')->middleware('isLoggedIn');
-    Route::post('/addItem',[ItemController::class,'addItem'])->name('addItem')->middleware('isLoggedIn');
-});
-Route::group(['prefix' => '/item'], function () {
-    //Route::post('/addItem',[ItemController::class,'addItem'])->name('addItem')->middleware('isLoggedIn');
+    Route::get('/manageUsers',[Controller::class,'manageUsers'])->name('manage-users')->middleware('isLoggedIn');
+    Route::get('/manageItems',[Controller::class,'manageItems'])->name('manage-items')->middleware('isLoggedIn');
+    Route::get('/manageRanks',[Controller::class,'manageRanks'])->name('manage-ranks')->middleware('isLoggedIn');
+    Route::get('/manageCategories',[Controller::class,'manageCategories'])->name('manage-categories')->middleware('isLoggedIn');
+    Route::get('/manageUnits',[Controller::class,'manageUnits'])->name('manage-units')->middleware('isLoggedIn');
+    Route::get('/manageStorage',[Controller::class,'manageStorage'])->name('manage-storage')->middleware('isLoggedIn');
+    Route::get('/manageTypes',[Controller::class,'manageTypes'])->name('manage-types')->middleware('isLoggedIn');
+    Route::post('/addItem',[ItemController::class,'addItem'])->name('addItem');
+    Route::get('/create-rank',[Controller::class,'addRank'])->name('create-rank')->middleware('isLoggedIn');
+    Route::post('/addRank',[RankController::class,'addRank'])->name('addRank');
+    Route::post('/addCategory',[CategoryController::class,'addCategory'])->name('addCategory');
+    Route::post('/addUnit',[UnitController::class,'addUnit'])->name('addUnit');
+    Route::post('/addStorage',[StorageController::class,'addStorage'])->name('addStorage');
+    Route::post('/addType',[TypeController::class,'addType'])->name('addType');
+    Route::post('/addUser',[UserController::class,'registerUser'])->name('addUser');
+
+
 });
 
-Route::group(['prefix' => '/type'], function () {
-    Route::get('/getAll',[TypeController::class,'index'])->middleware('isLoggedIn');
-});
-
-Route::group(['prefix' => '/unit'], function () {
-    Route::get('/getAll',[UnitController::class,'index'])->middleware('isLoggedIn');
-});
-
-Route::group(['prefix' => '/storage'], function () {
-    Route::get('/getAll',[StorageController::class,'index'])->middleware('isLoggedIn');
-});

@@ -9,6 +9,7 @@ use HasFactory;
 protected $primaryKey = 'categoryId';
 
 protected $fillable = ['categoryId','name'];
+public $table = 'category';
 public $timestamps = false;
 
 }

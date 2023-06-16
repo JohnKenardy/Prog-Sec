@@ -9,6 +9,7 @@ use HasFactory;
 protected $primaryKey = 'rankId';
 
 protected $fillable = ['rankId','title'];
+public $table ='rank';
 public $timestamps = false;
 
 }

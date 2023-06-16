@@ -30,15 +30,19 @@ class UserController extends Controller
         'password'=>'required|min:8|max:32',
         'rank' =>'required',
         'unit'=>'required',
-
+        'role'=>'required',
+        'accessLevel'=>'required'
     ]);
 
     $user = new User();
     $user->name = $request->name;
-    $user->email = $request->email;
-    $user->password = $request->password;
     $user->rank = $request->rank;
-    $user->unit = Hash::make($request->unit);
+    $user->unit = $request->unit;
+    $user->role = $request->role;
+    $user->accessLevel = $request->accessLevel;
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
+
     $res = $user->save();
     if($res){
         return back()->with('success', 'you have registered Successfully');
@@ -84,7 +88,7 @@ class UserController extends Controller
         $user = User::where('email','=',$request->email)->first();
         if($user){
             //Hash::check
-            if($request->password = $user->password){
+            if(Hash::check($request->password, $user->password)){
                 $request->session()->put('loginId',$user->userId);
                 return redirect('dashboard');
             }else{
@@ -99,4 +103,5 @@ class UserController extends Controller
 
 
     }
+
 }
