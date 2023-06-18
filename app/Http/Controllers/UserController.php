@@ -43,6 +43,8 @@ class UserController extends Controller
     $user->email = $request->email;
     $user->password = Hash::make($request->password);
 
+
+
     $res = $user->save();
     if($res){
         return back()->with('success', 'you have registered Successfully');
@@ -62,21 +64,25 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $customer = User::find($id);
-        $customer->update($request->all());
-        return $customer;
+        $user = User::find($id);
+
+        $user->update($request->all());
+        return redirect('/dashboard/manageUsers')->with('success','User updated');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public static function destroy(Resquest $request)
+    public static function destroy(Request $request)
      {
          $id = $request-> id;
 
-        return User::destroy($id);
+         User::destroy($id);
+         return redirect('/dashboard/manageUsers')->with('success','User Deleted');
+
     }
 
     public function loginUser(Request $request){
@@ -87,7 +93,7 @@ class UserController extends Controller
 
         $user = User::where('email','=',$request->email)->first();
         if($user){
-            //Hash::check
+
             if(Hash::check($request->password, $user->password)){
                 $request->session()->put('loginId',$user->userId);
                 return redirect('dashboard');

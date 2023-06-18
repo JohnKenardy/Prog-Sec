@@ -46,6 +46,8 @@ Route::group(['prefix' => '/dashboard'], function () {
     Route::post('/addStorage',[StorageController::class,'addStorage'])->name('addStorage');
     Route::post('/addType',[TypeController::class,'addType'])->name('addType');
     Route::post('/addUser',[UserController::class,'registerUser'])->name('addUser');
+    Route::post('/updateUser/{id}',[UserController::class,'update']);
+    Route::post('/deleteUser/{id}',[UserController::class,'destroy']);
 
 
 });
