@@ -24,33 +24,33 @@ class UserController extends Controller
     public function registerUser(Request $request): RedirectResponse
     {
 
-    $request ->validate([
-        'name'=>'required',
-        'email'=> 'required|email|unique:users',
-        'password'=>'required|min:8|max:32',
-        'rank' =>'required',
-        'unit'=>'required',
-        'role'=>'required',
-        'accessLevel'=>'required'
-    ]);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|max:32',
+            'rank' => 'required',
+            'unit' => 'required',
+            'role' => 'required',
+            'accessLevel' => 'required'
+        ]);
 
-    $user = new User();
-    $user->name = $request->name;
-    $user->rank = $request->rank;
-    $user->unit = $request->unit;
-    $user->role = $request->role;
-    $user->accessLevel = $request->accessLevel;
-    $user->email = $request->email;
-    $user->password = Hash::make($request->password);
+        $user = new User();
+        $user->name = $request->name;
+        $user->rank = $request->rank;
+        $user->unit = $request->unit;
+        $user->role = $request->role;
+        $user->accessLevel = $request->accessLevel;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
 
 
-    $res = $user->save();
-    if($res){
-        return back()->with('success', 'you have registered Successfully');
-    }else{
-        return back()->with('fail', 'something went wrong');
-    }
+        $res = $user->save();
+        if ($res) {
+            return back()->with('success', 'you have registered Successfully');
+        } else {
+            return back()->with('fail', 'something went wrong');
+        }
     }
 
     /**
@@ -69,45 +69,38 @@ class UserController extends Controller
         $user = User::find($id);
 
         $user->update($request->all());
-        return redirect('/dashboard/manageUsers')->with('success','User updated');
-
+        return redirect('/dashboard/manageUsers')->with('success', 'User updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public static function destroy(Request $request)
-     {
-         $id = $request-> id;
+    {
+        $id = $request->id;
 
-         User::destroy($id);
-         return redirect('/dashboard/manageUsers')->with('success','User Deleted');
-
+        User::destroy($id);
+        return redirect('/dashboard/manageUsers')->with('success', 'User Deleted');
     }
 
-    public function loginUser(Request $request){
-        $request ->validate([
-            'email'=> 'required|email',
-            'password'=>'required|min:8|max:32',
+    public function loginUser(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8|max:32',
         ]);
 
-        $user = User::where('email','=',$request->email)->first();
-        if($user){
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user) {
 
-            if(Hash::check($request->password, $user->password)){
-                $request->session()->put('loginId',$user->userId);
+            if (Hash::check($request->password, $user->password)) {
+                $request->session()->put('loginId', $user->userId);
                 return redirect('dashboard');
-            }else{
+            } else {
                 return back()->with('fail', 'Incorrect password');
             }
-
-        }else{
+        } else {
             return back()->with('fail', 'This user email is not registered');
         }
-
-
-
-
     }
-
 }
