@@ -26,13 +26,13 @@
         <div class="w3-modal-content w3-card-4">
             <header class="w3-container w3-blue-gray">
                 <span onclick="document.getElementById('addbtn').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                <h2>Add User</h2>
+                <h2>Add Ranks</h2>
             </header>
             <!-- Edit here-->
             <div class="w3-main">
                 <div class="w3-panel">
                     <div class="w3-container w3-card-4 w3-light-grey" style="max-width: 400px; margin: 50px auto 0;">
-                        <h2>Create New Item:</h2>
+                        <h2>Create New Rank:</h2>
                         @if(Session::has('success'))
                             <div class="alert alert-success">{{Session::get('success')}}</div>
                         @endif

@@ -10,6 +10,9 @@ use Illuminate\Routing\Controller;
 
 class UserController extends Controller
 {
+    public function __construct(){
+        $this->middleware('throttle:6,1')->only('loginUser');
+    }
     /**
      * Display a listing of the resource.
      */
