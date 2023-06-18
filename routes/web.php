@@ -22,33 +22,31 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/login',[Controller::class,'login']);
-Route::post('/loginUser',[UserController::class,'loginUser'])->name("loginUser");
-Route::get('/logout',[Controller::class,'logout'])->name('logout');
+Route::get('/', [Controller::class, 'login']);
+Route::get('/login', [Controller::class, 'login']);
+Route::post('/loginUser', [UserController::class, 'loginUser'])->name("loginUser");
+Route::get('/logout', [Controller::class, 'logout'])->name('logout');
 
-Route::get('/dashboard',[Controller::class,'dashboard'])->name('dashboard')->middleware('isLoggedIn');
+Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard')->middleware('isLoggedIn');
 
 
 
 Route::group(['prefix' => '/dashboard'], function () {
-    Route::get('/manageUsers',[Controller::class,'manageUsers'])->name('manage-users')->middleware('isLoggedIn');
-    Route::get('/manageItems',[Controller::class,'manageItems'])->name('manage-items')->middleware('isLoggedIn');
-    Route::get('/manageRanks',[Controller::class,'manageRanks'])->name('manage-ranks')->middleware('isLoggedIn');
-    Route::get('/manageCategories',[Controller::class,'manageCategories'])->name('manage-categories')->middleware('isLoggedIn');
-    Route::get('/manageUnits',[Controller::class,'manageUnits'])->name('manage-units')->middleware('isLoggedIn');
-    Route::get('/manageStorage',[Controller::class,'manageStorage'])->name('manage-storage')->middleware('isLoggedIn');
-    Route::get('/manageTypes',[Controller::class,'manageTypes'])->name('manage-types')->middleware('isLoggedIn');
-    Route::post('/addItem',[ItemController::class,'addItem'])->name('addItem');
-    Route::get('/create-rank',[Controller::class,'addRank'])->name('create-rank')->middleware('isLoggedIn');
-    Route::post('/addRank',[RankController::class,'addRank'])->name('addRank');
-    Route::post('/addCategory',[CategoryController::class,'addCategory'])->name('addCategory');
-    Route::post('/addUnit',[UnitController::class,'addUnit'])->name('addUnit');
-    Route::post('/addStorage',[StorageController::class,'addStorage'])->name('addStorage');
-    Route::post('/addType',[TypeController::class,'addType'])->name('addType');
-    Route::post('/addUser',[UserController::class,'registerUser'])->name('addUser');
-    Route::post('/updateUser/{id}',[UserController::class,'update']);
-    Route::post('/deleteUser/{id}',[UserController::class,'destroy']);
-
-
+    Route::get('/manageUsers', [Controller::class, 'manageUsers'])->name('manage-users')->middleware('isLoggedIn');
+    Route::get('/manageItems', [Controller::class, 'manageItems'])->name('manage-items')->middleware('isLoggedIn');
+    Route::get('/manageRanks', [Controller::class, 'manageRanks'])->name('manage-ranks')->middleware('isLoggedIn');
+    Route::get('/manageCategories', [Controller::class, 'manageCategories'])->name('manage-categories')->middleware('isLoggedIn');
+    Route::get('/manageUnits', [Controller::class, 'manageUnits'])->name('manage-units')->middleware('isLoggedIn');
+    Route::get('/manageStorage', [Controller::class, 'manageStorage'])->name('manage-storage')->middleware('isLoggedIn');
+    Route::get('/manageTypes', [Controller::class, 'manageTypes'])->name('manage-types')->middleware('isLoggedIn');
+    Route::post('/addItem', [ItemController::class, 'addItem'])->name('addItem');
+    Route::get('/create-rank', [Controller::class, 'addRank'])->name('create-rank')->middleware('isLoggedIn');
+    Route::post('/addRank', [RankController::class, 'addRank'])->name('addRank');
+    Route::post('/addCategory', [CategoryController::class, 'addCategory'])->name('addCategory');
+    Route::post('/addUnit', [UnitController::class, 'addUnit'])->name('addUnit');
+    Route::post('/addStorage', [StorageController::class, 'addStorage'])->name('addStorage');
+    Route::post('/addType', [TypeController::class, 'addType'])->name('addType');
+    Route::post('/addUser', [UserController::class, 'registerUser'])->name('addUser');
+    Route::post('/updateUser/{id}', [UserController::class, 'update']);
+    Route::post('/deleteUser/{id}', [UserController::class, 'destroy']);
 });
-
